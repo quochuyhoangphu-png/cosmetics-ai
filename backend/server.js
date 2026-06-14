@@ -10,6 +10,7 @@ require('dotenv').config();
 
 const { testConnection, sequelize } = require('./src/config/database');
 const { errorHandler, notFoundHandler } = require('./src/middleware/errorHandler');
+const autoSeed = require('./src/seeders/autoSeed');
 
 // Import routers
 const uploadRouter = require('./src/routes/upload');
@@ -65,12 +66,15 @@ app.use(errorHandler);
 async function startServer() {
   const isDbConnected = await testConnection();
   if (!isDbConnected) {
-    console.error('⚠️ DB Connection failed, starting server anyway but routes relying on database might fail.');
+    console.log('⚠️ DB Connection failed, starting server anyway but routes relying on database might fail.');
   } else {
     try {
       // Sync DB models (creates tables if they do not exist, without dropping existing data)
       await sequelize.sync();
       console.log('✅ Sequelize schemas synced with PostgreSQL.');
+      
+      // Auto-seed database if empty (avoids needing Render Shell)
+      await autoSeed();
     } catch (dbSyncError) {
       console.error('❌ Failed to sync database models:', dbSyncError.message);
     }
