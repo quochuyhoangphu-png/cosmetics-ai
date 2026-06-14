@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col, Spinner, Button, Card } from 'react-bootstrap';
@@ -11,16 +11,19 @@ import AgentPipeline from '../components/agents/AgentPipeline';
 import { getAnalysis } from '../services/api';
 // Floating sidebar navigation styles (inline for simplicity)
 const floatNavStyles = {
-  wrapper: {
+  wrapper: (visible) => ({
     position: 'fixed',
     left: '16px',
     top: '50%',
-    transform: 'translateY(-50%)',
+    transform: visible ? 'translateY(-50%)' : 'translateY(-50%) translateX(-80px)',
     zIndex: 999,
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
-  },
+    opacity: visible ? 1 : 0,
+    pointerEvents: visible ? 'auto' : 'none',
+    transition: 'opacity 0.35s ease, transform 0.35s ease',
+  }),
   btn: (active, color) => ({
     display: 'flex',
     flexDirection: 'column',
@@ -50,6 +53,8 @@ function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeSection, setActiveSection] = useState('raw-data');
+  const [showFloatNav, setShowFloatNav] = useState(false);
+  const overviewCardsRef = useRef(null);
   useEffect(() => {
     async function loadAnalysis() {
       try {
@@ -71,6 +76,21 @@ function DashboardPage() {
       loadAnalysis();
     }
   }, [id, t]);
+  // Show floating nav only after scrolling past the overview cards
+  useEffect(() => {
+    if (!analysisData) return;
+    const trigger = overviewCardsRef.current;
+    if (!trigger) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        // When the cards go OUT of view (scrolled past them), show the nav
+        setShowFloatNav(!entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    obs.observe(trigger);
+    return () => obs.disconnect();
+  }, [analysisData]);
   // Track which section is currently visible using IntersectionObserver
   useEffect(() => {
     if (!analysisData) return;
@@ -142,8 +162,8 @@ function DashboardPage() {
   ];
   return (
     <div className="dashboard-page py-5 bg-light-subtle min-vh-100">
-      {/* ===== Floating Sidebar Navigation ===== */}
-      <div style={floatNavStyles.wrapper} aria-label="Điều hướng nhanh">
+      {/* ===== Floating Sidebar Navigation (hiện sau khi lướt qua 3 card) ===== */}
+      <div style={floatNavStyles.wrapper(showFloatNav)} aria-label="Điều hướng nhanh">
         {navItems.map((item) => (
           <button
             key={item.id}
@@ -182,8 +202,8 @@ function DashboardPage() {
             </Button>
           </div>
         </div>
-        {/* Overview Navigation Cards */}
-        <Row className="g-4 mb-5 pb-4 border-bottom">
+        {/* Overview Navigation Cards - ref used to detect when user scrolls past this */}
+        <Row ref={overviewCardsRef} className="g-4 mb-5 pb-4 border-bottom">
           <Col md={4}>
             <Card 
               className="h-100 shadow-sm border-0 text-center p-4 dashboard-card-hover" 
