@@ -111,4 +111,56 @@ const initialProducts = [
     description: 'Kem dưỡng dạng gel siêu nhẹ, cấp nước tức thì mà không gây nhờn rít hay bít tắc lỗ chân lông.',
     keyIngredients: ['Hyaluronic Acid'],
     priceRange: '300k-400k',
-    imageUrl: 'https://media.hcdn.vn/catalog/product/k
+    imageUrl: 'https://media.hcdn.vn/catalog/product/k/e/kem-duong-am-neutrogena-danh-cho-da-dau-50g-0_img_380x380_f08811_fit_center.jpg',
+    suitableForAcne: true,
+    suitableForOily: true,
+    routineStep: 4,
+    routineInstructions: 'Thoa đều đặn mỗi sáng và tối sau các bước tinh chất. Vỗ nhẹ để gel thấm hoàn toàn.'
+  },
+  {
+    name: 'Clinique Dramatically Different Moisturizing Gel',
+    brand: 'Clinique',
+    category: 'moisturizer',
+    skinTypes: ['oily', 'combination'],
+    description: 'Kem dưỡng dạng thạch vàng huyền thoại, giúp cân bằng lượng nước và dầu trên da, củng cố hàng rào bảo vệ da.',
+    keyIngredients: ['Hyaluronic Acid', 'Glycerin'],
+    priceRange: '1000k-1200k',
+    imageUrl: 'https://media.hcdn.vn/catalog/product/k/e/kem-duong-am-clinique-danh-cho-da-dau-hon-hop-dau-125ml-4_img_380x380_f08811_fit_center.jpg',
+    suitableForAcne: false,
+    suitableForOily: true,
+    routineStep: 4,
+    routineInstructions: 'Dùng 2 lần/ngày sáng và tối. Lấy 1-2 pump thoa đều khắp mặt và cổ.'
+  }
+];
+
+const initialIngredients = [
+  { name: 'Niacinamide', inciName: 'Niacinamide', category: 'active', function: 'Kiềm dầu, giảm viêm, làm sáng da, mờ thâm mụn', minConcentration: 2.0, maxConcentration: 10.0, suitableZones: ['tzone', 'uzone'], contraindications: [], legalMaxPercent: 10.0, benefits: 'Giúp điều tiết dầu thừa ở vùng T-Zone và phục hồi độ sáng tự nhiên cho vùng U-Zone mà không gây kích ứng.' },
+  { name: 'Salicylic Acid (BHA)', inciName: 'Salicylic Acid', category: 'active', function: 'Tiêu sừng, làm sạch sâu lỗ chân lông, ngăn ngừa mụn', minConcentration: 0.5, maxConcentration: 2.0, suitableZones: ['tzone'], contraindications: [], legalMaxPercent: 2.0, benefits: 'Tan trong dầu, len lỏi sâu vào lỗ chân lông vùng T-Zone.' },
+  { name: 'Azelaic Acid', inciName: 'Azelaic Acid', category: 'active', function: 'Kháng khuẩn, giảm thâm đỏ sau mụn, giảm viêm', minConcentration: 5.0, maxConcentration: 15.0, suitableZones: ['tzone'], contraindications: [], legalMaxPercent: 15.0, benefits: 'Kháng viêm mạnh mẽ, điều trị tại chỗ các đốm mụn viêm đỏ ở vùng chữ T.' },
+  { name: 'Centella Asiatica', inciName: 'Centella Asiatica Extract', category: 'active', function: 'Phục hồi da, làm dịu kích ứng, thúc đẩy tái tạo tế bào', minConcentration: 0.5, maxConcentration: 5.0, suitableZones: ['uzone'], contraindications: [], legalMaxPercent: 10.0, benefits: 'Cực kỳ êm dịu, giúp làm dịu và phục hồi vùng U-Zone.' },
+  { name: 'Ceramide NP', inciName: 'Ceramide NP', category: 'active', function: 'Phục hồi và củng cố hàng rào lipid bảo vệ da, giữ ẩm sâu', minConcentration: 0.5, maxConcentration: 3.0, suitableZones: ['uzone'], contraindications: [], legalMaxPercent: 5.0, benefits: 'Liên kết chặt chẽ các tế bào biểu bì vùng U-Zone để giảm thiểu sự mất nước qua da.' },
+  { name: 'Hyaluronic Acid', inciName: 'Sodium Hyaluronate', category: 'active', function: 'Cấp nước sâu, tăng độ đàn hồi, giữ cho da mịn màng', minConcentration: 0.1, maxConcentration: 2.0, suitableZones: ['uzone'], contraindications: [], legalMaxPercent: 2.0, benefits: 'Thu hút và ngậm lượng nước gấp 1000 lần trọng lượng của nó.' },
+  { name: 'Tea Tree Oil', inciName: 'Melaleuca Alternifolia Leaf Oil', category: 'active', function: 'Kháng khuẩn tự nhiên, xẹp mụn sưng đỏ', minConcentration: 1.0, maxConcentration: 5.0, suitableZones: ['tzone'], contraindications: [], legalMaxPercent: 5.0, benefits: 'Trị mụn tại chỗ nhanh chóng cho vùng T-Zone nhờ đặc tính kháng khuẩn vượt trội.' },
+  { name: 'Zinc PCA', inciName: 'Zinc PCA', category: 'active', function: 'Kiểm soát dầu nhờn dư thừa, kháng viêm, se lỗ chân lông', minConcentration: 0.1, maxConcentration: 1.0, suitableZones: ['tzone'], contraindications: [], legalMaxPercent: 1.0, benefits: 'Hạn chế đáng kể hoạt động của tuyến bã nhờn đang hoạt động quá mức tại vùng chữ T.' }
+];
+
+async function autoSeed() {
+  try {
+    const productCount = await Product.count();
+    const ingredientCount = await Ingredient.count();
+    if (productCount === 0) {
+      console.log('🌱 Auto-seeding 9 commercial products...');
+      await Product.bulkCreate(initialProducts);
+      console.log('✅ Products seeded successfully.');
+    }
+    if (ingredientCount === 0) {
+      console.log('🌱 Auto-seeding 8 active ingredients...');
+      await Ingredient.bulkCreate(initialIngredients);
+      console.log('✅ Ingredients seeded successfully.');
+    }
+  } catch (error) {
+    console.error('❌ Auto-seed error:', error.message);
+  }
+}
+
+module.exports = autoSeed;
