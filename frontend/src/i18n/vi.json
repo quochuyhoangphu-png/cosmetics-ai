@@ -1,0 +1,228 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "upload": "Phân tích",
+    "about": "Giới thiệu",
+    "language": "EN"
+  },
+  "hero": {
+    "title": "Cá Nhân Hóa Mỹ Phẩm Bằng Trí Tuệ Nhân Tạo",
+    "subtitle": "Phân tích da chuyên sâu từ dữ liệu máy quét da chuyên nghiệp. Hệ thống AI đa tác tử tạo công thức mỹ phẩm cá nhân hóa theo vùng da của bạn.",
+    "cta": "Phân Tích Da Của Bạn",
+    "cta_icon": "→"
+  },
+  "features": {
+    "section_title": "Tính Năng Nổi Bật",
+    "section_subtitle": "Nền tảng mỹ phẩm cá nhân hóa toàn diện",
+    "analysis": {
+      "title": "AI Phân Tích Da",
+      "description": "Upload file PDF từ máy quét da chuyên nghiệp. AI tự động trích xuất và phân tích các chỉ số da bao gồm Sebum, Pore, Moisture, Pigmentation, Sensitivity và Acne."
+    },
+    "recommendation": {
+      "title": "Gợi Ý Thông Minh",
+      "description": "Hệ thống AI gợi ý sản phẩm thương mại phù hợp và quy trình chăm sóc da cá nhân hóa dựa trên kết quả phân tích chi tiết."
+    },
+    "mini_factory": {
+      "title": "Nhà Máy Mini",
+      "description": "Tạo bộ kit mỹ phẩm cá nhân hóa với công thức riêng cho vùng T-Zone và U-Zone. Hoạt chất được bơm vào hệ nền cốt lõi (Core Base)."
+    }
+  },
+  "how_it_works": {
+    "title": "Quy Trình Hoạt Động",
+    "subtitle": "4 bước đơn giản để có bộ mỹ phẩm riêng của bạn",
+    "step1": {
+      "title": "Upload PDF",
+      "description": "Tải lên file PDF kết quả quét da từ thiết bị chuyên nghiệp"
+    },
+    "step2": {
+      "title": "AI Agents Xử Lý",
+      "description": "Hệ thống đa tác tử AI tự động trích xuất, phân tích và xác thực dữ liệu"
+    },
+    "step3": {
+      "title": "Chuyên Gia Kiểm Duyệt",
+      "description": "Hệ thống chuyên gia tự động kiểm tra tính hợp lệ và an toàn của công thức"
+    },
+    "step4": {
+      "title": "Nhận Bộ Kit",
+      "description": "Bộ kit mỹ phẩm cá nhân hóa được tạo với công thức tối ưu cho da bạn"
+    }
+  },
+  "competitor": {
+    "title": "So Sánh Với Đối Thủ",
+    "subtitle": "DermAI vượt trội hơn với dữ liệu chuyên nghiệp và công thức cá nhân hóa",
+    "feature": "Tính năng",
+    "data_source": "Nguồn dữ liệu",
+    "accuracy": "Độ chính xác",
+    "output": "Đầu ra",
+    "personalization": "Cá nhân hóa",
+    "custom_formulation": "Công thức tùy chỉnh",
+    "us": "DermAI (Chúng tôi)",
+    "loreal": {
+      "data": "Camera Selfie",
+      "accuracy": "95% (vs bác sĩ da liễu)",
+      "output": "Gợi ý sản phẩm",
+      "personalization": "Chọn từ danh mục",
+      "custom": "❌"
+    },
+    "spotscan": {
+      "data": "3 Selfies",
+      "accuracy": "GEA 0-5",
+      "output": "Tối đa 4 sản phẩm",
+      "personalization": "Chọn từ danh mục",
+      "custom": "❌"
+    },
+    "eve": {
+      "data": "Selfie",
+      "accuracy": "Panoramic",
+      "output": "Điểm sức khỏe da",
+      "personalization": "Lời khuyên chung",
+      "custom": "❌"
+    },
+    "dermai": {
+      "data": "PDF Máy Quét Da Chuyên Nghiệp",
+      "accuracy": "Chỉ số lâm sàng",
+      "output": "Công thức tùy chỉnh + Sản phẩm",
+      "personalization": "Kit theo vùng da (T/U)",
+      "custom": "✅ Nhà Máy Mini"
+    }
+  },
+  "upload": {
+    "title": "Phân Tích Da AI",
+    "description": "Upload file PDF từ máy quét da để bắt đầu phân tích",
+    "drag_drop_text": "Kéo & thả file PDF vào đây",
+    "or_click": "hoặc nhấn để chọn file",
+    "pdf_only": "Chỉ chấp nhận file PDF",
+    "upload_btn": "Bắt Đầu Phân Tích",
+    "demo_btn": "Dùng Thử Demo",
+    "demo_desc": "Không có file PDF? Thử với dữ liệu mẫu",
+    "or": "hoặc",
+    "processing": "Đang xử lý...",
+    "progress": {
+      "title": "AI Đang Phân Tích",
+      "subtitle": "Hệ thống đa tác tử đang xử lý dữ liệu da của bạn",
+      "upload": "Upload & Nhận dữ liệu",
+      "upload_desc": "Đang tải file và trích xuất nội dung",
+      "extract": "Trích xuất chỉ số",
+      "extract_desc": "AI đang đọc và phân tích các thông số da",
+      "validate": "Xác thực dữ liệu",
+      "validate_desc": "Kiểm tra chéo với cơ sở dữ liệu Kaggle Big Data",
+      "formulate": "Tạo công thức",
+      "formulate_desc": "Thiết kế công thức cá nhân hóa cho từng vùng da",
+      "review": "Kiểm duyệt chuyên gia",
+      "review_desc": "Hệ thống chuyên gia xác nhận tính an toàn"
+    }
+  },
+  "dashboard": {
+    "title": "Kết Quả Phân Tích",
+    "subtitle": "Phân tích chi tiết và đề xuất cá nhân hóa cho da bạn",
+    "error_not_found": "Chúng tôi không tìm thấy kết quả phân tích da với ID #{{id}}.",
+    "overview_raw_data_desc": "Xem chi tiết các chỉ số phân tích chuyên sâu về độ ẩm, bã nhờn, lỗ chân lông và tình trạng mụn trên da của bạn.",
+    "overview_kit_desc": "Khám phá công thức mỹ phẩm cá nhân hóa được AI điều chế riêng cho tình trạng da hiện tại của bạn.",
+    "overview_products_desc": "Danh sách các sản phẩm thương mại có sẵn trên thị trường phù hợp nhất với làn da của bạn.",
+    "raw_data_title": "Dữ Liệu Phân Tích Da",
+    "raw_data_desc": "Các chỉ số da được trích xuất từ PDF và phân tích bởi AI",
+    "validation_badge": "Dữ liệu đã được hệ thống chuyên gia kiểm duyệt",
+    "commercial_title": "Sản Phẩm Thương Mại Được Đề Xuất",
+    "commercial_desc": "Các sản phẩm phù hợp nhất cho loại da của bạn",
+    "kit_title": "Bộ Kit Nhà Máy Mini",
+    "kit_desc": "Công thức cá nhân hóa cho từng vùng da",
+    "agents_title": "Quy Trình Xử Lý AI",
+    "agents_desc": "Các tác tử AI đã tham gia vào quá trình phân tích",
+    "profile_badge": "Khách hàng dưới 25 tuổi, da dầu mụn",
+    "data_note": "Dữ liệu đã được kiểm tra chéo với cơ sở dữ liệu Kaggle Big Data chứa hơn 500,000 mẫu phân tích da.",
+    "chart_title": "Biểu Đồ Chỉ Số Da",
+    "metrics": {
+      "sebum": "Sebum (Bã nhờn)",
+      "pore": "Pore Size (Lỗ chân lông)",
+      "moisture": "Moisture (Độ ẩm)",
+      "pigmentation": "Pigmentation (Sắc tố)",
+      "sensitivity": "Sensitivity (Độ nhạy cảm)",
+      "acne": "Acne (Mụn)"
+    }
+  },
+  "kit": {
+    "tzone_title": "T-Zone",
+    "uzone_title": "U-Zone",
+    "gel": "Gel",
+    "cream": "Cream",
+    "concentration_range": "Nồng độ",
+    "optimal": "Tối ưu",
+    "core_base_title": "Hệ Nền Cốt Lõi (Core Base)",
+    "core_base_message": "Hệ thống nhà máy mini sẽ tự động bơm các hoạt chất vào hệ nền cốt lõi (Core Base) để tạo ra sản phẩm cuối cùng phù hợp nhất với da bạn.",
+    "formula_label": "Công thức tính nồng độ cuối",
+    "formula": "C_final = C_base + Σ(Active_i × Conc_i)",
+    "cost_note": "Tối ưu hóa chi phí sản xuất",
+    "legal_compliance": "Tuân thủ pháp luật",
+    "legal_text": "Tất cả nồng độ hoạt chất đều nằm trong giới hạn cho phép theo quy định của Bộ Y tế Việt Nam và tiêu chuẩn EU Cosmetics Regulation.",
+    "tzone_explanation": "Vùng T-Zone (trán, mũi, cằm) có xu hướng tiết nhiều dầu. Công thức gel nhẹ giúp kiểm soát bã nhờn và thu nhỏ lỗ chân lông.",
+    "uzone_explanation": "Vùng U-Zone (má, thái dương) thường khô hơn. Công thức cream đặc giúp cung cấp độ ẩm và nuôi dưỡng sâu."
+  },
+  "products": {
+    "recommended_for": "Phù hợp cho",
+    "oily_acne": "da dầu mụn",
+    "price_range": "Giá",
+    "skincare_routine": "Quy Trình Chăm Sóc Da",
+    "step": "Bước",
+    "cleanser": "Sữa rửa mặt",
+    "toner": "Toner",
+    "treatment": "Điều trị",
+    "moisturizer": "Kem dưỡng ẩm",
+    "sunscreen": "Kem chống nắng"
+  },
+  "agents": {
+    "orchestrator": "Orchestrator",
+    "orchestrator_desc": "Điều phối quy trình",
+    "extraction": "Extraction",
+    "extraction_desc": "Trích xuất dữ liệu",
+    "planning": "Planning",
+    "planning_desc": "Lập kế hoạch",
+    "formulation": "Formulation",
+    "formulation_desc": "Tạo công thức",
+    "review": "Review",
+    "review_desc": "Kiểm duyệt",
+    "complete": "Hoàn thành",
+    "processing": "Đang xử lý",
+    "pending": "Đang chờ"
+  },
+  "about": {
+    "title": "Giới Thiệu DermAI",
+    "subtitle": "Nền tảng cá nhân hóa mỹ phẩm bằng AI đầu tiên tại Việt Nam",
+    "mission_title": "Sứ Mệnh",
+    "mission_desc": "DermAI ra đời với sứ mệnh mang công nghệ AI tiên tiến vào ngành mỹ phẩm, giúp mỗi người có được sản phẩm chăm sóc da phù hợp nhất với cơ địa của mình.",
+    "tech_title": "Công Nghệ",
+    "tech_desc": "Sử dụng kiến trúc Multi-Agent AI với 5 tác tử chuyên biệt, kết hợp Big Data từ Kaggle và các nghiên cứu lâm sàng.",
+    "architecture_title": "Kiến Trúc Hệ Thống",
+    "team_title": "Đội Ngũ",
+    "team_desc": "Được phát triển bởi đội ngũ chuyên gia AI và chuyên gia da liễu hàng đầu.",
+    "contact_title": "Liên Hệ",
+    "contact_email": "hoang.2574202070197@vanlanguni.vn"
+  },
+  "footer": {
+    "brand_desc": "Nền tảng cá nhân hóa mỹ phẩm bằng AI",
+    "product": "Sản phẩm",
+    "company": "Công ty",
+    "support": "Hỗ trợ",
+    "skin_analysis": "Phân tích da",
+    "recommendations": "Gợi ý sản phẩm",
+    "mini_factory": "Nhà máy mini",
+    "pricing": "Bảng giá",
+    "about_us": "Về chúng tôi",
+    "careers": "Tuyển dụng",
+    "blog": "Blog",
+    "press": "Báo chí",
+    "help_center": "Trung tâm hỗ trợ",
+    "contact": "Liên hệ",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng",
+    "copyright": "© 2024 DermAI. Bảo lưu mọi quyền."
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "download": "Tải xuống",
+    "retry": "Thử lại",
+    "close": "Đóng"
+  }
+}

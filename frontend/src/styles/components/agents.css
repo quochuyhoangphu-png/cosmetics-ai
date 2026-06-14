@@ -1,0 +1,191 @@
+/* ============================================
+   Agent Pipeline - BEM
+   ============================================ */
+
+.agents {
+  margin-top: var(--space-xl);
+}
+
+.agents__pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: var(--space-lg) 0;
+}
+
+.agents__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border-light);
+  min-width: 140px;
+  text-align: center;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.agents__card--complete {
+  border-color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.agents__card--processing {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.agents__card--orchestrator {
+  border-top: 3px solid var(--color-accent);
+}
+
+.agents__card--extraction {
+  border-top: 3px solid var(--color-info);
+}
+
+.agents__card--planning {
+  border-top: 3px solid var(--color-secondary);
+}
+
+.agents__card--formulation {
+  border-top: 3px solid var(--color-primary);
+}
+
+.agents__card--review {
+  border-top: 3px solid var(--color-warning);
+}
+
+.agents__card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+}
+
+.agents__card--orchestrator .agents__card-icon {
+  background: rgba(var(--color-accent-rgb), 0.15);
+  color: var(--color-accent);
+}
+
+.agents__card--extraction .agents__card-icon {
+  background: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+.agents__card--planning .agents__card-icon {
+  background: rgba(var(--color-secondary-rgb), 0.15);
+  color: var(--color-secondary);
+}
+
+.agents__card--formulation .agents__card-icon {
+  background: rgba(var(--color-primary-rgb), 0.15);
+  color: var(--color-primary);
+}
+
+.agents__card--review .agents__card-icon {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.agents__card-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.agents__card-time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.agents__card-status {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.agents__card--complete .agents__card-status {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.agents__card--processing .agents__card-status {
+  background: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
+  animation: pulse 1.5s ease infinite;
+}
+
+.agents__card--pending .agents__card-status {
+  background: var(--color-border-light);
+  color: var(--color-text-muted);
+}
+
+/* Connector Arrow */
+.agents__connector {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-xs);
+  color: var(--color-border);
+  font-size: var(--font-size-xl);
+  flex-shrink: 0;
+}
+
+.agents__connector--active {
+  color: var(--color-success);
+}
+
+.agents__connector-line {
+  width: 30px;
+  height: 2px;
+  background: var(--color-border);
+  position: relative;
+}
+
+.agents__connector--active .agents__connector-line {
+  background: var(--color-success);
+}
+
+.agents__connector-line::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid var(--color-border);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+.agents__connector--active .agents__connector-line::after {
+  border-left-color: var(--color-success);
+}
+
+@media (max-width: 768px) {
+  .agents__pipeline {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .agents__card {
+    width: 100%;
+    flex-direction: row;
+    min-width: unset;
+    text-align: left;
+  }
+
+  .agents__connector {
+    transform: rotate(90deg);
+    padding: 0;
+  }
+}

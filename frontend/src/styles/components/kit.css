@@ -1,0 +1,300 @@
+/* ============================================
+   Mini Factory Kit - BEM
+   ============================================ */
+
+.kit {
+  margin-top: var(--space-xl);
+}
+
+.kit__box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Zone Compartment */
+.kit__zone {
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.kit__zone:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.kit__zone--tzone {
+  background: var(--gradient-tzone);
+  border: 2px solid var(--color-tzone-border);
+}
+
+.kit__zone--uzone {
+  background: var(--gradient-uzone);
+  border: 2px solid var(--color-uzone-border);
+}
+
+.kit__zone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.kit__zone-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-heading);
+}
+
+.kit__zone-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+}
+
+.kit__zone--tzone .kit__zone-indicator {
+  background: var(--color-tzone);
+}
+
+.kit__zone--uzone .kit__zone-indicator {
+  background: var(--color-uzone);
+}
+
+.kit__zone-base-badge {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.kit__zone--tzone .kit__zone-base-badge {
+  background: var(--color-tzone-bg);
+  color: var(--color-tzone);
+  border: 1px solid var(--color-tzone-border);
+}
+
+.kit__zone--uzone .kit__zone-base-badge {
+  background: var(--color-uzone-bg);
+  color: var(--color-uzone);
+  border: 1px solid var(--color-uzone-border);
+}
+
+.kit__zone-ingredients {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.kit__zone-explanation {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  margin: 0;
+}
+
+/* Concentration Range */
+.kit__concentration {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.kit__concentration-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kit__concentration-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.kit__concentration-values {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.kit__concentration-bar {
+  position: relative;
+  height: 8px;
+  background: var(--color-border-light);
+  border-radius: var(--radius-full);
+  overflow: visible;
+}
+
+.kit__concentration-range {
+  position: absolute;
+  height: 100%;
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+}
+
+.kit__concentration-range--tzone {
+  background: var(--color-tzone);
+}
+
+.kit__concentration-range--uzone {
+  background: var(--color-uzone);
+}
+
+.kit__concentration-optimal {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+.kit__concentration-optimal--tzone {
+  background: var(--color-tzone);
+}
+
+.kit__concentration-optimal--uzone {
+  background: var(--color-uzone);
+}
+
+.kit__concentration-optimal-label {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.kit__concentration-optimal-label--tzone {
+  color: var(--color-tzone);
+}
+
+.kit__concentration-optimal-label--uzone {
+  color: var(--color-uzone);
+}
+
+/* Core Base Info */
+.kit__core-base {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.kit__core-base-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.kit__core-base-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(var(--color-accent-rgb), 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-accent);
+}
+
+.kit__core-base-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0;
+}
+
+.kit__core-base-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-lg);
+}
+
+.kit__formula {
+  background: var(--color-surface-elevated);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  margin-bottom: var(--space-lg);
+}
+
+.kit__formula-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-sm);
+}
+
+.kit__formula-expression {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+}
+
+.kit__cost-note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+/* Legal Compliance Badge */
+.kit__legal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-success-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-success);
+  margin-top: var(--space-xl);
+}
+
+.kit__legal-icon {
+  font-size: var(--font-size-2xl);
+  color: var(--color-success);
+  flex-shrink: 0;
+}
+
+.kit__legal-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-base);
+}
+
+.kit__legal-text strong {
+  color: var(--color-success);
+}
+
+@media (max-width: 768px) {
+  .kit__box {
+    grid-template-columns: 1fr;
+  }
+}

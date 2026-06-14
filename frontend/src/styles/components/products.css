@@ -1,0 +1,229 @@
+/* ============================================
+   Product Cards & Recommendations - BEM
+   ============================================ */
+
+.products {
+  margin-top: var(--space-xl);
+}
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Product Card */
+.product-card {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-card__image {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card__image--cleanser {
+  background: linear-gradient(135deg, hsla(200, 70%, 70%, 0.3), hsla(200, 70%, 90%, 0.3));
+}
+
+.product-card__image--serum {
+  background: linear-gradient(135deg, hsla(270, 50%, 70%, 0.3), hsla(270, 50%, 90%, 0.3));
+}
+
+.product-card__image--moisturizer {
+  background: linear-gradient(135deg, hsla(348, 70%, 70%, 0.3), hsla(348, 70%, 90%, 0.3));
+}
+
+.product-card__image--toner {
+  background: linear-gradient(135deg, hsla(170, 60%, 70%, 0.3), hsla(170, 60%, 90%, 0.3));
+}
+
+.product-card__image--sunscreen {
+  background: linear-gradient(135deg, hsla(45, 80%, 70%, 0.3), hsla(45, 80%, 90%, 0.3));
+}
+
+.product-card__body {
+  padding: var(--space-lg);
+}
+
+.product-card__brand {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.product-card__name {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-heading);
+}
+
+.product-card__price {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.product-card__ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.product-card__ingredient-badge {
+  padding: 2px var(--space-sm);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-xs);
+  background: rgba(var(--color-accent-rgb), 0.1);
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.product-card__skin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+.product-card__skin-badge-icon {
+  font-size: var(--font-size-sm);
+}
+
+/* Skincare Routine */
+.routine {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.routine__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  font-family: var(--font-heading);
+}
+
+.routine__timeline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  overflow-x: auto;
+  padding-bottom: var(--space-md);
+}
+
+.routine__timeline::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.routine__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 120px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.routine__step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.routine__step-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.routine__step-product {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  max-width: 130px;
+  line-height: var(--line-height-base);
+}
+
+.routine__step-icon {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .routine__timeline {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-lg);
+  }
+
+  .routine__timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .routine__step {
+    flex-direction: row;
+    text-align: left;
+    min-width: unset;
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "nav": {
+    "home": "Home",
+    "upload": "Analyze",
+    "about": "About",
+    "language": "VI"
+  },
+  "hero": {
+    "title": "Personalized Cosmetics With Artificial Intelligence",
+    "subtitle": "In-depth skin analysis from professional skin scanner data. Multi-agent AI system creates personalized cosmetic formulations for your skin zones.",
+    "cta": "Analyze Your Skin",
+    "cta_icon": "→"
+  },
+  "features": {
+    "section_title": "Key Features",
+    "section_subtitle": "Comprehensive personalized cosmetics platform",
+    "analysis": {
+      "title": "AI Skin Analysis",
+      "description": "Upload PDF files from professional skin scanners. AI automatically extracts and analyzes skin metrics including Sebum, Pore, Moisture, Pigmentation, Sensitivity and Acne."
+    },
+    "recommendation": {
+      "title": "Smart Recommendations",
+      "description": "AI system recommends suitable commercial products and personalized skincare routines based on detailed analysis results."
+    },
+    "mini_factory": {
+      "title": "Mini Factory",
+      "description": "Create personalized cosmetic kit with custom formulations for T-Zone and U-Zone. Active ingredients are dispensed into the Core Base system."
+    }
+  },
+  "how_it_works": {
+    "title": "How It Works",
+    "subtitle": "4 simple steps to get your personalized cosmetics",
+    "step1": {
+      "title": "Upload PDF",
+      "description": "Upload PDF scan results from professional skin scanning device"
+    },
+    "step2": {
+      "title": "AI Agents Process",
+      "description": "Multi-agent AI system automatically extracts, analyzes and validates data"
+    },
+    "step3": {
+      "title": "Expert Validation",
+      "description": "Automated expert system checks formulation validity and safety"
+    },
+    "step4": {
+      "title": "Receive Kit",
+      "description": "Personalized cosmetic kit is created with optimized formulation for your skin"
+    }
+  },
+  "competitor": {
+    "title": "Competitor Comparison",
+    "subtitle": "DermAI excels with professional data and personalized formulations",
+    "feature": "Feature",
+    "data_source": "Data Source",
+    "accuracy": "Analysis Accuracy",
+    "output": "Output",
+    "personalization": "Personalization",
+    "custom_formulation": "Custom Formulation",
+    "us": "DermAI (Us)",
+    "loreal": {
+      "data": "Selfie Camera",
+      "accuracy": "95% (vs dermatologist)",
+      "output": "Product recommendation",
+      "personalization": "Select from catalog",
+      "custom": "❌"
+    },
+    "spotscan": {
+      "data": "3 Selfies",
+      "accuracy": "GEA 0-5",
+      "output": "Max 4 products",
+      "personalization": "Select from catalog",
+      "custom": "❌"
+    },
+    "eve": {
+      "data": "Selfie",
+      "accuracy": "Panoramic",
+      "output": "Skin health score",
+      "personalization": "General advice",
+      "custom": "❌"
+    },
+    "dermai": {
+      "data": "Professional Skin Scanner PDF",
+      "accuracy": "Clinical-grade metrics",
+      "output": "Custom formulation + Products",
+      "personalization": "Zone-specific kit (T/U)",
+      "custom": "✅ Mini Factory"
+    }
+  },
+  "upload": {
+    "title": "AI Skin Analysis",
+    "description": "Upload PDF from skin scanner to start analysis",
+    "drag_drop_text": "Drag & drop PDF file here",
+    "or_click": "or click to select file",
+    "pdf_only": "Only PDF files accepted",
+    "upload_btn": "Start Analysis",
+    "demo_btn": "Try Demo",
+    "demo_desc": "No PDF file? Try with sample data",
+    "or": "or",
+    "processing": "Processing...",
+    "progress": {
+      "title": "AI Is Analyzing",
+      "subtitle": "Multi-agent system is processing your skin data",
+      "upload": "Upload & Receive data",
+      "upload_desc": "Uploading file and extracting content",
+      "extract": "Extract metrics",
+      "extract_desc": "AI is reading and analyzing skin parameters",
+      "validate": "Validate data",
+      "validate_desc": "Cross-referencing with Kaggle Big Data database",
+      "formulate": "Create formulation",
+      "formulate_desc": "Designing personalized formulation for each skin zone",
+      "review": "Expert review",
+      "review_desc": "Expert system confirming safety"
+    }
+  },
+  "dashboard": {
+    "title": "Analysis Results",
+    "subtitle": "Detailed analysis and personalized recommendations for your skin",
+    "error_not_found": "We could not find the skin analysis result with ID #{{id}}.",
+    "overview_raw_data_desc": "View detailed analysis of moisture, sebum, pore size, and acne conditions on your skin.",
+    "overview_kit_desc": "Discover the personalized cosmetic formulation tailored by AI specifically for your current skin condition.",
+    "overview_products_desc": "List of commercially available products on the market that best suit your skin.",
+    "raw_data_title": "Skin Analysis Data",
+    "raw_data_desc": "Skin metrics extracted from PDF and analyzed by AI",
+    "validation_badge": "Data validated by expert system",
+    "commercial_title": "Recommended Commercial Products",
+    "commercial_desc": "Most suitable products for your skin type",
+    "kit_title": "Mini Factory Kit",
+    "kit_desc": "Personalized formulation for each skin zone",
+    "agents_title": "AI Processing Pipeline",
+    "agents_desc": "AI agents involved in the analysis process",
+    "profile_badge": "Customer under 25, oily acne-prone skin",
+    "data_note": "Data has been cross-referenced with Kaggle Big Data database containing over 500,000 skin analysis samples.",
+    "chart_title": "Skin Metrics Chart",
+    "metrics": {
+      "sebum": "Sebum",
+      "pore": "Pore Size",
+      "moisture": "Moisture",
+      "pigmentation": "Pigmentation",
+      "sensitivity": "Sensitivity",
+      "acne": "Acne"
+    }
+  },
+  "kit": {
+    "tzone_title": "T-Zone",
+    "uzone_title": "U-Zone",
+    "gel": "Gel",
+    "cream": "Cream",
+    "concentration_range": "Concentration",
+    "optimal": "Optimal",
+    "core_base_title": "Core Base System",
+    "core_base_message": "The mini factory system will automatically dispense active ingredients into the Core Base to create the final product that best suits your skin.",
+    "formula_label": "Final concentration formula",
+    "formula": "C_final = C_base + Σ(Active_i × Conc_i)",
+    "cost_note": "Optimized production cost",
+    "legal_compliance": "Legal Compliance",
+    "legal_text": "All active ingredient concentrations are within permitted limits according to Vietnam Ministry of Health regulations and EU Cosmetics Regulation standards.",
+    "tzone_explanation": "The T-Zone (forehead, nose, chin) tends to produce more oil. Light gel formula helps control sebum and minimize pores.",
+    "uzone_explanation": "The U-Zone (cheeks, temples) is usually drier. Rich cream formula provides moisture and deep nourishment."
+  },
+  "products": {
+    "recommended_for": "Suitable for",
+    "oily_acne": "oily acne-prone skin",
+    "price_range": "Price",
+    "skincare_routine": "Skincare Routine",
+    "step": "Step",
+    "cleanser": "Cleanser",
+    "toner": "Toner",
+    "treatment": "Treatment",
+    "moisturizer": "Moisturizer",
+    "sunscreen": "Sunscreen"
+  },
+  "agents": {
+    "orchestrator": "Orchestrator",
+    "orchestrator_desc": "Process coordination",
+    "extraction": "Extraction",
+    "extraction_desc": "Data extraction",
+    "planning": "Planning",
+    "planning_desc": "Planning phase",
+    "formulation": "Formulation",
+    "formulation_desc": "Create formulation",
+    "review": "Review",
+    "review_desc": "Expert review",
+    "complete": "Complete",
+    "processing": "Processing",
+    "pending": "Pending"
+  },
+  "about": {
+    "title": "About DermAI",
+    "subtitle": "Vietnam's first AI-powered personalized cosmetics platform",
+    "mission_title": "Mission",
+    "mission_desc": "DermAI was created with the mission of bringing advanced AI technology into the cosmetics industry, helping everyone find skincare products that perfectly match their skin.",
+    "tech_title": "Technology",
+    "tech_desc": "Using Multi-Agent AI architecture with 5 specialized agents, combined with Big Data from Kaggle and clinical research.",
+    "architecture_title": "System Architecture",
+    "team_title": "Team",
+    "team_desc": "Developed by a team of leading AI experts and dermatologists.",
+    "contact_title": "Contact",
+    "contact_email": "hoang.2574202070197@vanlanguni.vn"
+  },
+  "footer": {
+    "brand_desc": "AI-powered personalized cosmetics platform",
+    "product": "Product",
+    "company": "Company",
+    "support": "Support",
+    "skin_analysis": "Skin analysis",
+    "recommendations": "Recommendations",
+    "mini_factory": "Mini factory",
+    "pricing": "Pricing",
+    "about_us": "About us",
+    "careers": "Careers",
+    "blog": "Blog",
+    "press": "Press",
+    "help_center": "Help center",
+    "contact": "Contact",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "copyright": "© 2024 DermAI. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "next": "Next",
+    "download": "Download",
+    "retry": "Retry",
+    "close": "Close"
+  }
+}
