@@ -9,14 +9,47 @@ import CommercialProducts from '../components/recommendations/CommercialProducts
 import MiniFactoryKit from '../components/formulation/MiniFactoryKit';
 import AgentPipeline from '../components/agents/AgentPipeline';
 import { getAnalysis } from '../services/api';
-
+// Floating sidebar navigation styles (inline for simplicity)
+const floatNavStyles = {
+  wrapper: {
+    position: 'fixed',
+    left: '16px',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    zIndex: 999,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+  },
+  btn: (active, color) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '56px',
+    height: '56px',
+    borderRadius: '14px',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.25s ease',
+    boxShadow: active
+      ? `0 4px 16px ${color}55`
+      : '0 2px 8px rgba(0,0,0,0.12)',
+    background: active ? color : '#ffffff',
+    color: active ? '#ffffff' : color,
+    fontSize: '10px',
+    fontWeight: 600,
+    gap: '3px',
+    padding: '6px 2px 4px',
+  }),
+};
 function DashboardPage() {
   const { id } = useParams();
   const { t } = useTranslation();
   const [analysisData, setAnalysisData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [activeSection, setActiveSection] = useState('raw-data');
   useEffect(() => {
     async function loadAnalysis() {
       try {
@@ -34,12 +67,38 @@ function DashboardPage() {
         setLoading(false);
       }
     }
-
     if (id) {
       loadAnalysis();
     }
   }, [id, t]);
-
+  // Track which section is currently visible using IntersectionObserver
+  useEffect(() => {
+    if (!analysisData) return;
+    const sections = ['raw-data', 'formulation', 'products'];
+    const observers = [];
+    sections.forEach((sectionId) => {
+      const el = document.getElementById(sectionId);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(sectionId);
+          }
+        },
+        { threshold: 0.25 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, [analysisData]);
+  const scrollTo = (sectionId) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+    }
+  };
   if (loading) {
     return (
       <Container className="d-flex flex-column justify-content-center align-items-center min-vh-100">
@@ -48,7 +107,6 @@ function DashboardPage() {
       </Container>
     );
   }
-
   if (error || !analysisData) {
     return (
       <Container className="py-5 text-center min-vh-100 d-flex flex-column justify-content-center align-items-center">
@@ -62,7 +120,6 @@ function DashboardPage() {
       </Container>
     );
   }
-
   // Fallback for agentSteps processing time metadata (from demo response or mock)
   const agentSteps = analysisData.agentSteps || [
     { agent: 'orchestrator', status: 'complete', processingTimeMs: 120 },
@@ -71,7 +128,6 @@ function DashboardPage() {
     { agent: 'formulation', status: 'complete', processingTimeMs: 520 },
     { agent: 'review', status: 'complete', processingTimeMs: 180 }
   ];
-
   const formattedDate = new Date(analysisData.createdAt).toLocaleDateString('vi-VN', {
     hour: '2-digit',
     minute: '2-digit',
@@ -79,9 +135,29 @@ function DashboardPage() {
     month: '2-digit',
     year: 'numeric'
   });
-
+  const navItems = [
+    { id: 'raw-data', icon: <BiGridAlt size={22} />, label: 'Phân Tích', color: '#0d6efd' },
+    { id: 'formulation', icon: <FaFlask size={20} />, label: 'Bộ Kit', color: '#ffc107' },
+    { id: 'products', icon: <BiShoppingBag size={22} />, label: 'Sản Phẩm', color: '#198754' },
+  ];
   return (
     <div className="dashboard-page py-5 bg-light-subtle min-vh-100">
+      {/* ===== Floating Sidebar Navigation ===== */}
+      <div style={floatNavStyles.wrapper} aria-label="Điều hướng nhanh">
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            id={`float-nav-${item.id}`}
+            title={item.label}
+            onClick={() => scrollTo(item.id)}
+            style={floatNavStyles.btn(activeSection === item.id, item.color)}
+            aria-label={`Đi đến mục ${item.label}`}
+          >
+            {item.icon}
+            <span style={{ fontSize: '9px', lineHeight: 1 }}>{item.label}</span>
+          </button>
+        ))}
+      </div>
       <Container>
         {/* Navigation & Header */}
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-5 pb-3 border-bottom">
@@ -106,7 +182,6 @@ function DashboardPage() {
             </Button>
           </div>
         </div>
-
         {/* Overview Navigation Cards */}
         <Row className="g-4 mb-5 pb-4 border-bottom">
           <Col md={4}>
@@ -115,7 +190,7 @@ function DashboardPage() {
               style={{ cursor: 'pointer', transition: 'all 0.3s ease', backgroundColor: 'var(--color-surface)' }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = 'var(--shadow-lg)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
-              onClick={() => { document.getElementById('raw-data').scrollIntoView({ behavior: 'smooth' }); }}
+              onClick={() => scrollTo('raw-data')}
             >
               <div className="mb-3">
                 <div className="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-circle" style={{ width: '80px', height: '80px' }}>
@@ -137,7 +212,7 @@ function DashboardPage() {
               style={{ cursor: 'pointer', transition: 'all 0.3s ease', backgroundColor: 'var(--color-surface)' }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = 'var(--shadow-lg)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
-              onClick={() => { document.getElementById('formulation').scrollIntoView({ behavior: 'smooth' }); }}
+              onClick={() => scrollTo('formulation')}
             >
               <div className="mb-3">
                 <div className="d-inline-flex align-items-center justify-content-center bg-warning bg-opacity-10 rounded-circle" style={{ width: '80px', height: '80px' }}>
@@ -159,7 +234,7 @@ function DashboardPage() {
               style={{ cursor: 'pointer', transition: 'all 0.3s ease', backgroundColor: 'var(--color-surface)' }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = 'var(--shadow-lg)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
-              onClick={() => { document.getElementById('products').scrollIntoView({ behavior: 'smooth' }); }}
+              onClick={() => scrollTo('products')}
             >
               <div className="mb-3">
                 <div className="d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 rounded-circle" style={{ width: '80px', height: '80px' }}>
@@ -176,7 +251,6 @@ function DashboardPage() {
             </Card>
           </Col>
         </Row>
-
         {/* Full Details Sections */}
         <div id="raw-data" className="pt-4 mt-2">
           <RawDataSection skinData={analysisData} />
@@ -189,7 +263,6 @@ function DashboardPage() {
         <div id="products" className="pt-5 mt-4 mb-5">
           <CommercialProducts analysisId={analysisData.id} />
         </div>
-
         {/* Multi-Agent processing details */}
         <div className="mt-5 pt-3 border-top">
           <AgentPipeline agentSteps={agentSteps} />
@@ -198,5 +271,4 @@ function DashboardPage() {
     </div>
   );
 }
-
 export default DashboardPage;
