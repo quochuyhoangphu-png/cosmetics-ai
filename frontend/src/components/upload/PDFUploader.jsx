@@ -40,15 +40,17 @@ function PDFUploader({ onProcessingStart }) {
     try {
       const result = await uploadPDF(selectedFile);
       const analysisId = result?.data?.analysisId || result?.analysisId || result?.id || 'demo-001';
+      // ✅ Chờ 8 giây để hiện animation xử lý, rồi chuyển trang
       setTimeout(() => {
         navigate(`/dashboard/${analysisId}`);
       }, 8000);
     } catch (err) {
-      // If API is not available, use demo mode
-      console.warn('API not available, using demo mode:', err.message);
+      // ✅ Backend không phản hồi → dùng chế độ demo cục bộ
+      console.warn('Backend không hoạt động, chuyển sang chế độ Demo:', err.message);
+      // Chờ ngắn hơn (3 giây) vì không cần đợi server xử lý
       setTimeout(() => {
         navigate('/dashboard/demo-001');
-      }, 8000);
+      }, 3000);
     }
   };
 
@@ -60,14 +62,17 @@ function PDFUploader({ onProcessingStart }) {
     try {
       const result = await triggerDemo();
       const analysisId = result?.data?.analysisId || result?.analysisId || result?.id || 'demo-001';
+      // ✅ Backend phản hồi thành công → dùng ID thật từ database
       setTimeout(() => {
         navigate(`/dashboard/${analysisId}`);
       }, 8000);
     } catch (err) {
-      console.warn('API not available, using demo mode:', err.message);
+      // ✅ Backend ngủ hoặc lỗi → tự động dùng dữ liệu demo tích hợp sẵn
+      // DashboardPage đã xử lý 'demo-001' bằng DEMO_MOCK_DATA cục bộ
+      console.warn('Backend chưa sẵn sàng, dùng dữ liệu Demo cục bộ:', err.message);
       setTimeout(() => {
         navigate('/dashboard/demo-001');
-      }, 8000);
+      }, 3000);
     }
   };
 
